@@ -219,6 +219,10 @@ plot(Lift_forest)
 #data_matrix <- model.matrix(converted_in_7days~ .-region-client_id-date-sourceMedium, data = data1_balance)[,-1]
 inTrain <- createDataPartition(y = data1$converted_in_7days,
                                p = 8/10, list = FALSE)
+training <- data1[ inTrain,]
+testing <- data1[ -inTrain,]
+      
+       
 data_matrix<-data.matrix(dplyr::select(data1,-converted_in_7days))
 
 data_matrix
